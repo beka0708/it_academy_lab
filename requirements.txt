@@ -1,0 +1,15 @@
+django
+djangorestframework
+python-decouple
+Pillow
+psycopg2-binary
+django-cors-headers
+drf-yasg
+redis
+djangorestframework-simplejwt
+django-rest-passwordreset
+django-filter
+django-phonenumber-field
+django-jazzmin
+gunicorn
+phonenumbers
