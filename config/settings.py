@@ -9,13 +9,13 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import contextlib
 from datetime import timedelta
 from pathlib import Path
+
 from decouple import config as de_config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -28,7 +28,6 @@ DEBUG = de_config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = de_config('ALLOWED_HOSTS').split()
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #installed_apps
+    # installed_apps
     "corsheaders",
     'phonenumbers',
     'rest_framework',
@@ -47,7 +46,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'phonenumber_field',
     'django_rest_passwordreset',
-    #my_apps
+    # my_apps
     'account',
     'form',
     'project',
@@ -85,7 +84,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -107,6 +105,14 @@ DATABASES = {
     }
 }
 
+# Maximum size for all file uploads
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440
+
+# Maximum size for one file
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
+
+# Maximum size for one file
+FILE_UPLOAD_TEMP_DIR_MAX = 2621440
 
 
 # Password validation
@@ -127,7 +133,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -139,7 +144,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -147,7 +151,6 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
 
 PHONENUMBER_DEFAULT_REGION = 'KG'
 AUTH_USER_MODEL = 'account.CustomUser'
@@ -157,7 +160,6 @@ AUTH_USER_MODEL = 'account.CustomUser'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
@@ -166,7 +168,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
-
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
@@ -201,7 +202,6 @@ SIMPLE_JWT = {
     "TOKEN_BLACKLIST_SERIALIZER": "rest_framework_simplejwt.serializers.TokenBlacklistSerializer",
 }
 
-
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'Token': {
@@ -212,7 +212,6 @@ SWAGGER_SETTINGS = {
     },
     'USE_SESSION_AUTH': False,
 }
-
 
 JAZZMIN_SETTINGS = {
     "site_title": "ITLab",
@@ -228,7 +227,6 @@ JAZZMIN_SETTINGS = {
     # "searchbar_model_name": "Поиск по моделям...",
     # "searchbar_model_field_name": "Поиск по полям...",
 }
-
 
 CORS_ORIGIN_ALLOW_ALL = de_config('CORS_ORIGIN_ALLOW_ALL', cast=bool)
 CORS_ALLOWED_ORIGINS = [de_config('CORS_ALLOWED_ORIGINS')]
