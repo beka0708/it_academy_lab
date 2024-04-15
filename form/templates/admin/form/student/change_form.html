@@ -1,0 +1,11 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+{% block submit_buttons_bottom %}
+    {% if original.id %}
+        <link rel="stylesheet" href="{% static 'form/style.css' %}">
+        <input class="approve-button" value="Одобрить" type="button" onclick="location.href='{% url 'admin:get_student' object_id=original.id %}'" />
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+
