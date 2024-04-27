@@ -256,6 +256,7 @@ JAZZMIN_SETTINGS = {
 CORS_ALLOWED_ORIGINS = de_config("CORS_ALLOWED_ORIGINS").split(',')
 
 CORS_ORIGIN_ALLOW_ALL = de_config('CORS_ORIGIN_ALLOW_ALL', cast=bool)
+CORS_ALLOWED_ORIGINS = [de_config('CORS_ALLOWED_ORIGINS')]
 CORS_ALLOW_CREDENTIALS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
